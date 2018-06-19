@@ -1,4 +1,4 @@
 # Wolf
 Automated PR reviewer
 
-Tracks all your smelly code and reports it.
+Tracks all your smelly code in a PR and reports it.
