@@ -1,0 +1,13 @@
+{
+  "name": "wolf",
+  "description": "A Git Pull Request automatic reviewer.",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Shad0wflame",
+  "dependencies": {
+
+  }
+}
