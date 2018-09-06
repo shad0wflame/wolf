@@ -17,7 +17,7 @@ class WolfLinter {
         }
 
         if (this.track === undefined) {
-            throw new TypeError('Classes extending the widget abstract class.')
+            throw new TypeError(`${this.constructor.name} extends WolfLinter abstract class and needs to implement the "track" function.`);
         }
 
         _private.set(this, {
