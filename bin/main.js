@@ -1,14 +1,15 @@
 const ModuleLoader = require('./module-loader');
+const logger = require('./logger');
 
 const loader = new ModuleLoader();
 loader.import();
 
-console.log(loader);
+logger.log(loader);
 
 loader.modules.forEach((module) => {
     let instance = new module();
     instance.track();
-    console.log(instance.getErrors());
+    logger.log(instance.getErrors());
 });
 
 

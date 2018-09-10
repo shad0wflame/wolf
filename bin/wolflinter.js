@@ -41,4 +41,4 @@ class WolfLinter {
 
 }
 
-module.exports = {WolfLinter: WolfLinter, WolfLinterError: WolfLinterError};
+module.exports = {WolfLinter, WolfLinterError};
