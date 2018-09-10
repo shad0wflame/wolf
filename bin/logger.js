@@ -53,24 +53,24 @@ class WolfLogger {
 
     debug(string, encoding, fd) {
         if (_private.get(this)._shouldLog(this.level, LoggerLevels.DEBUG)) {
-            log(chalk.blue.bold('[ Wolf - DEBUG ]:'), string, encoding, fd);
+            _log(chalk.blue.bold('[ Wolf - DEBUG ]:'), string, encoding, fd);
         }
     }
 
     warn(string, encoding, fd) {
         if (_private.get(this)._shouldLog(this.level, LoggerLevels.WARN)) {
-            log(chalk.yellow.bold('[ Wolf - WARNING ]:'), string, encoding, fd);
+            _log(chalk.yellow.bold('[ Wolf - WARNING ]:'), string, encoding, fd);
         }
     }
 
     error(string, encoding, fd) {
         if (_private.get(this)._shouldLog(this.level, LoggerLevels.ERROR)) {
-            log(chalk.red.bold('[ Wolf - ERROR ]:'), string, encoding, fd);
+            _log(chalk.red.bold('[ Wolf - ERROR ]:'), string, encoding, fd);
         }
     }
 }
 
-function log(header, string, encoding, fd) {
+function _log(header, string, encoding, fd) {
     let _date = new Date();
     if (string.length === 0) {
         process.stdout.write('\n', encoding, fd, loggerSymbol);
