@@ -1,5 +1,4 @@
 const ModuleLoader = require('./module-loader');
-const logger = require('./logger');
 
 const loader = new ModuleLoader();
 loader.import();

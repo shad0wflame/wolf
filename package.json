@@ -8,6 +8,6 @@
   },
   "author": "Shad0wflame",
   "dependencies": {
-
+    "chalk": "^2.4.1"
   }
 }
