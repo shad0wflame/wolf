@@ -51,26 +51,31 @@ class WolfLogger {
         }
     }
 
-    debug() {
+    debug(string, encoding, fd) {
         if (_private.get(this)._shouldLog(this.level, LoggerLevels.DEBUG)) {
-            let _date = new Date();
-            process.stdout.write(`${chalk.yellow.bold(`[${_date.toLocaleString()}]`)}${chalk.blue.bold('[ Wolf - DEBUG ]:')} \n ${util.format.apply(this, arguments)}\n`, null, null, loggerSymbol);
+            log(chalk.blue.bold('[ Wolf - DEBUG ]:'), string, encoding, fd);
         }
-
     }
 
-    warn() {
+    warn(string, encoding, fd) {
         if (_private.get(this)._shouldLog(this.level, LoggerLevels.WARN)) {
-            let _date = new Date();
-            process.stdout.write(`${chalk.yellow.bold(`[${_date.toLocaleString()}]`)}${chalk.yellow.bold('[ Wolf - WARNING ]:')} \n ${util.format.apply(this, arguments)}\n`, null, null, loggerSymbol);
+            log(chalk.yellow.bold('[ Wolf - WARNING ]:'), string, encoding, fd);
         }
     }
 
-    error() {
+    error(string, encoding, fd) {
         if (_private.get(this)._shouldLog(this.level, LoggerLevels.ERROR)) {
-            let _date = new Date();
-            process.stdout.write(`${chalk.yellow.bold(`[${_date.toLocaleString()}]`)}${chalk.red.bold('[ Wolf - ERROR ]:')} \n ${util.format.apply(this, arguments)}\n`, null, null, loggerSymbol);
+            log(chalk.red.bold('[ Wolf - ERROR ]:'), string, encoding, fd);
         }
+    }
+}
+
+function log(header, string, encoding, fd) {
+    let _date = new Date();
+    if (string.length === 0) {
+        process.stdout.write('\n', encoding, fd, loggerSymbol);
+    } else {
+        process.stdout.write(`${chalk.yellow.bold(`[${_date.toLocaleString()}]`)}${header} \n ${util.format.apply(this, [string])}\n`, encoding, fd, loggerSymbol);
     }
 }
 
