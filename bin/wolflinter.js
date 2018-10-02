@@ -22,17 +22,17 @@ class WolfLinter {
 
         _private.set(this, {
             /** @private { Map<String, Array<WolfTSLintError>> } _errors **/
-            _errors: new Map()
+            _errors: {}
         });
     }
 
     addErrors(err) {
         const _errors = _private.get(this)._errors;
-        if (_errors.has(err.fileName)) {
-            _errors.get(err.fileName).push(err);
-        } else {
-            _errors.set(err.fileName, [err]);
+        if (!_errors.hasOwnProperty(err.fileName)) {
+            _errors[err.fileName] = [];
         }
+
+        _errors[err.fileName].push(err);
     }
 
     getErrors() {

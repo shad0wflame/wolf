@@ -1,0 +1,6 @@
+class GitInterface {
+
+    constructor(config) {
+
+    }
+}

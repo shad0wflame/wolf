@@ -17,8 +17,6 @@ const _private = new WeakMap();
 class WolfLogger {
 
     constructor() {
-        console.log = undefined;
-        console.error = undefined;
         process.stdout.write = _writeFn;
         process.stderr.write = _writeFn;
 
