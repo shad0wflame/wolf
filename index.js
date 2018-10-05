@@ -4,6 +4,7 @@ const path = require('path');
 
 // SET GLOBAL CONSTANTS
 global['rootPath'] = __dirname;
+global['testPath'] = path.join(rootPath, 'app');
 global['binPath'] = path.join(rootPath, 'bin');
 global['modulesPath'] = path.join(rootPath, 'modules');
 
